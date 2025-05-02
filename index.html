@@ -3,131 +3,588 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Samuel Parikesit Rixell Nuradhy - Portfolio</title>
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+        
+        body {
+            color: #fff;
+            background-color: #000;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            padding: 12px 24px;
+            background-color: #4caf50;
+            color: white;
+            border-radius: 4px;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: #45a049;
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            border: 1px solid #4caf50;
+            color: #4caf50;
+        }
+        
+        .btn-outline:hover {
+            background-color: rgba(76, 175, 80, 0.1);
+        }
+        
+        .section-title {
+            font-size: 32px;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+        
+        /* Header */
+        header {
+            padding: 20px 0;
+            background-color: rgba(0, 0, 0, 0.9);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-weight: 700;
+            font-size: 20px;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 30px;
+        }
+        
+        .nav-links a {
+            color: #ddd;
+            font-size: 14px;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: #fff;
+        }
+        
+        /* Hero Section */
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 80px 0;
+        }
+        
+        .hero-content {
+            flex: 1;
+            padding-right: 60px;
+        }
+        
+        .hero-name {
+            font-size: 42px;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        
+        .hero-desc {
+            color: #ccc;
+            margin-bottom: 30px;
+            max-width: 600px;
+        }
+        
+        .hero-image {
+            width: 280px;
+            height: 280px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 5px solid #222;
+        }
+        
+        .hero-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        /* Case Studies */
+        .case-studies {
+            padding: 80px 0;
+            background-color: #fff;
+            color: #333;
+        }
+        
+        .case-studies-desc {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 60px;
+            color: #666;
+        }
+        
+        .case-card {
+            display: flex;
+            margin-bottom: 40px;
+            background-color: #f8f8f8;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .case-info {
+            flex: 1;
+            padding: 30px;
+        }
+        
+        .case-tag {
+            display: inline-block;
+            padding: 4px 12px;
+            background-color: #eee;
+            border-radius: 20px;
+            font-size: 12px;
+            margin-bottom: 15px;
+        }
+        
+        .web { color: #ff9800; }
+        .bot { color: #2196f3; }
+        .app { color: #9c27b0; }
+        
+        .case-title {
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+        
+        .case-desc {
+            color: #666;
+            margin-bottom: 20px;
+        }
+        
+        .case-image {
+            flex: 1;
+            max-width: 40%;
+        }
+        
+        .case-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        /* Achievements */
+        .achievements {
+            padding: 80px 0;
+            background-color: #000;
+        }
+        
+        .achievements-desc {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 60px;
+            color: #ccc;
+        }
+        
+        .testimonials {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+        
+        .testimonial {
+            background-color: #111;
+            padding: 30px;
+            border-radius: 8px;
+            border: 1px solid #333;
+        }
+        
+        .testimonial-text {
+            color: #ccc;
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+        
+        .author-image {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-right: 15px;
+        }
+        
+        .author-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .author-info h4 {
+            font-size: 16px;
+            color: #fff;
+        }
+        
+        /* Work Experience */
+        .work {
+            padding: 80px 0;
+            background-color: #fff;
+            color: #333;
+        }
+        
+        .work-desc {
+            text-align: center;
+            /* max-width: 700px;  */
+            margin: 0 auto 60px;
+            color: #666;
+        }
+        
+        .work-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+        
+        .work-card {
+            background-color: #f8f8f8;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .work-image {
+            height: 250px;
+            overflow: hidden;
+        }
+        
+        .work-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .work-info {
+            padding: 20px;
+        }
+        
+        .work-title {
+            font-size: 22px;
+            margin-bottom: 10px;
+        }
+        
+        .work-desc {
+            color: #666;
+            margin: 0 0 20px;
+            text-align: left;
+        }
+        .work-desc2 {
+            color: #666;
+            margin: 0 0 20px;
+            text-align: center;
+        }
+        
+        /* Contact */
+        .contact {
+            padding: 80px 0;
+            background-color: #000;
+        }
+        
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px;
+            background-color: #111;
+            border: 1px solid #333;
+            border-radius: 4px;
+            color: #fff;
+        }
+        
+        textarea.form-control {
+            min-height: 120px;
+            resize: vertical;
+        }
+        
+        .submit-btn {
+            width: 100%;
+            padding: 15px;
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .submit-btn:hover {
+            background-color: #45a049;
+        }
+        
+        /* Footer */
+        footer {
+            padding: 20px 0;
+            text-align: center;
+            font-size: 14px;
+            color: #666;
+            background-color: #000;
+            border-top: 1px solid #222;
+        }
+        
+        /* Slider Controls */
+        .slider-controls {
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+        }
+        
+        .slider-arrow {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #f8f8f8;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 5px;
+            cursor: pointer;
+        }
+        
+        .slider-arrow:hover {
+            background-color: #eee;
+        }
+    </style>
 </head>
 <body>
     <header>
-        <nav>
-            <a href="Home"></a>
-            <a href="Case Studies"></a>
-            <a href="Other Achievements"></a>
-            <a href="Work Experience"></a>
-            <a href="Get In Touch"></a>
-        </nav>
-        <div>
-            <h1>Samuel Parikesit Rixell Nuradhy</h1>
-            <p>"Sebagai seorang siswa SMA, saya sedang menjelajahi dunia programming layaknya petualang di dunia digital. Dengan semangat belajar dan rasa penasaran yang besar, saya mulai menulis baris demi baris kode, mencoba membangun sesuatu dari nol. Bagi saya, programming bukan sekadar tugas, tapi seni menyusun logika dan menciptakan solusi. Ini baru permulaan, dan saya siap melangkah lebih jauh ke dalam dunia teknologi masa depan."</p>
-            <button>Let's get started ></button>
+        <div class="container nav-container">
+            <a href="#" class="logo">Sam</a>
+            <ul class="nav-links">
+                <li><a href="#case-studies">Case Studies</a></li>
+                <li><a href="#achievements">Other Achievements</a></li>
+                <li><a href="#work">Work Experience</a></li>
+                <li><a href="#contact">Get In Touch</a></li>
+                <li><a href="#"><i class="fab fa-linkedin"></i></a></li>
+                <li><a href="#"><i class="fab fa-github"></i></a></li>
+                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+            </ul>
         </div>
-        <div><img src="" alt="" class="profile"></div>
     </header>
-    <main>
-        <div>
-        <div>
-            <h1>Case Studies</h1>
-            <p>Selama tiga tahun terakhir di SMA, saya aktif mempelajari berbagai bahasa pemrograman seperti Python, JavaScript, HTML, dan CSS. Pembelajaran dilakukan secara mandiri dan diterapkan dalam proyek-proyek sederhana untuk memperkuat pemahaman teknis. </p>
+    
+    <section class="hero container">
+        <div class="hero-content">
+            <h1 class="hero-name">Samuel Parikesit Rixell Nuradhy</h1>
+            <p class="hero-desc">Mahasiswa berbagi ilmu dan terus belajar tentang berbagai aspek pemrograman, algoritma, desain, dan bidang digital. Meskipun masih dalam tahap belajar, semangat untuk mengembangkan karya-karya baru telah mendorong untuk mencoba berbagai tools, buat self-project, dan ikut mengerjakan project dari volunteer ataupun tempat PKL/magang. Siap untuk terus mengembangkan project yang ka.</p>
+            <a href="#case-studies" class="btn">Let's get started →</a>
         </div>
-        <div>
-            <div>
-                <h5>Game</h5>
-                <h3>Game Berbasis Python</h3>
-                <p>Pada pembuatan game ini, saya menerapkan berbagai ilmu python yang telah saya pelajari. Saya membuat game oflline dimana si player berusaha untuk melawan zombie bermodalkan tembakan.</p>
-                <button>View Case Study ></button>
+        <div class="hero-image">
+            <img src="pp.jpg" alt="Samuel Parikesit Rixell profile photo">
+        </div>
+    </section>
+    
+    <section id="case-studies" class="case-studies">
+        <div class="container">
+            <h2 class="section-title">Case Studies</h2>
+            <p class="case-studies-desc">Koleksi dari hasil pencapaian di bidang pemrograman dan desain digital. Beberapa menggunakan tools seperti HTML/CSS, JavaScript, Python, Figma, dan lainnya. Menunjukkan proses bernalar dalam menyelesaikan proyek.</p>
+            
+            <div class="case-card">
+                <div class="case-info">
+                    <span class="case-tag web">Web</span>
+                    <h3 class="case-title">Game sederhana berbasis Python</h3>
+                    <p class="case-desc">Game sederhana yang dapat berjalan di browser, dibuat menggunakan Python dan beberapa library tambahan. Konsep game dibuat sejelas mungkin, dengan antarmuka yang sederhana berisi beberapa tombol interaksi sederhana.</p>
+                    <a href="#" class="btn-outline">View Case Study →</a>
+                </div>
+                <div class="case-image">
+                    <img src="pygame.png" alt="Python game screenshot">
+                </div>
             </div>
-            <img src="" alt="" class="right">
-        </div>
-        <div>
-          <img src="" alt="" class="right">
-            <div>
-                <h5>bot</h5>
-                <h3>Bot Discord Berbasis Python</h3>
-                <p>Pada pembuatan Bot Discord ini, saya menerapkan berbagai ilmu python yang telah saya pelajari. Saya membuat suatu bot dimana bisa mempermudah interaksi antara berbagai user dan mengadakan game/ilmu baru yang menyenangkan.</p>
-                <button>View Case Study</button>
+            
+            <div class="case-card">
+                <div class="case-info">
+                    <span class="case-tag bot">Bot</span>
+                    <h3 class="case-title">Bot Discord berbasis Python</h3>
+                    <p class="case-desc">Bot sederhana bot Discord ini bisa menggunakan beberapa perintah. Dibuat dengan Python yang dapat menerima perintah sederhana dan menghasilkan respons, termasuk pengelolaan peran dan mengirimkan pesan selamat datang menggunakan Discord API.</p>
+                    <a href="#" class="btn-outline">View Case Study →</a>
+                </div>
+                <div class="case-image">
+                    <img src="bot.png" alt="Discord bot screenshot">
+                </div>
             </div>
-        </div>
-        <div>
-            <div>
-                <h5>Website</h5>
-                <h3>Website Pengingat Sederhana</h3>
-                <p>Pada pembuatan website ini, saya menggabungkan ilmu saya di bidang python, html, dan juga css untuk menciptakan sebuah website yang dapat memberikan kita pengingat apa saja yang akan dilakukan pada hari itu</p>
-                <button>View case study</button>
-            </div>
-            <img src="" alt="" class="right">
-        </div>
-    </div>
-    <div>
-        <div>
-            <h1>Other Achievements</h1>
-            <p>Selain fokus kepada bidang programming, saya juga mempunyai berbagai ketertarikan lainnya.</p>
-        </div>
-        <div>
-            <h1></h1>
-            <p></p>
-            <div>
-                <img src="" alt="">
-                <p></p>
-            </div>
-        </div>
-        <div>
-            <h1></h1>
-            <p></p>
-            <div>
-                <img src="" alt="">
-                <p></p>
+            
+            <div class="case-card">
+                <div class="case-info">
+                    <span class="case-tag app">App</span>
+                    <h3 class="case-title">Website Pengingat Sederhana</h3>
+                    <p class="case-desc">Website sederhana yang membantu pengguna untuk mengatur jadwal, dibuat menggunakan HTML, CSS, dan JavaScript. Menu dibuat simpel dengan tampilan yang user friendly. Lebih mementingkan fungsionalitas dibandingkan estetika.</p>
+                    <a href="#" class="btn-outline">View Case Study →</a>
+                </div>
+                <div class="case-image">
+                    <img src="/api/placeholder/500/300" alt="To-do website screenshot">
+                </div>
             </div>
         </div>
-        <div>
-            <h1></h1>
-            <p></p>
-            <div>
-                <img src="" alt="">
-                <p></p>
+    </section>
+    
+    <section id="achievements" class="achievements">
+        <div class="container">
+            <h2 class="section-title">Other Achievements</h2>
+            <p class="achievements-desc">Selain karya berbasis pemrograman, saya juga mengerjakan beberapa karya desain, administratif, dan lainnya.</p>
+            
+            <div class="testimonials">
+                <div class="testimonial">
+                    <p class="testimonial-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    <div class="testimonial-author">
+                        <div class="author-image">
+                            <img src="/api/placeholder/50/50" alt="Client photo">
+                        </div>
+                        <div class="author-info">
+                            <h4>Client Name</h4>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial">
+                    <p class="testimonial-text">Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    <div class="testimonial-author">
+                        <div class="author-image">
+                            <img src="/api/placeholder/50/50" alt="Client photo">
+                        </div>
+                        <div class="author-info">
+                            <h4>Client Name</h4>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial">
+                    <p class="testimonial-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    <div class="testimonial-author">
+                        <div class="author-image">
+                            <img src="/api/placeholder/50/50" alt="Client photo">
+                        </div>
+                        <div class="author-info">
+                            <h4>Client Name</h4>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial">
+                    <p class="testimonial-text">Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    <div class="testimonial-author">
+                        <div class="author-image">
+                            <img src="/api/placeholder/50/50" alt="Client photo">
+                        </div>
+                        <div class="author-info">
+                            <h4>Client Name</h4>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-        <div>
-            <h1></h1>
-            <p></p>
-            <div>
-                <img src="" alt="">
-                <p></p>
+    </section>
+    
+    <section id="work" class="work">
+        <div class="container">
+            <h2 class="section-title">Work Experience</h2>
+            <p class="work-desc2">Dari barista hingga relawan bantuan, berbagai pengalaman kerja yang membangun soft-skill.</p>
+            
+            <div class="work-grid">
+                <div class="work-card">
+                    <div class="work-image">
+                        <img src="bar.jpg" alt="Working at cafe">
+                    </div>
+                    <div class="work-info">
+                        <h3 class="work-title">Magang di Cafe</h3>
+                        <p class="work-desc">Mempelajari cara mengolah kopi dan melayani pelanggan (Juni-Juli)</p>
+                        <a href="#" class="btn-outline">Read More →</a>
+                    </div>
+                </div>
+                
+                <div class="work-card">
+                    <div class="work-image">
+                        <img src="vol.jpg" alt="Volunteer work">
+                    </div>
+                    <div class="work-info">
+                        <h3 class="work-title">Volunteer Korban Bencana</h3>
+                        <p class="work-desc">Membantu korban bencana dengan mendistribusikan bantuan dan membangun kembali fasilitas</p>
+                        <a href="#" class="btn-outline">Read More →</a>
+                    </div>
+                </div>
             </div>
-        </div>        
-    </div>
-    <div>
-        <div>
-            <h1>Work Experience</h1>
-            <p>Saya mempunyai berbagai macam pengalaman kerja yang dapat dijadikan sebagai poin tambahan.</p>
+            
+            <div class="slider-controls">
+                <div class="slider-arrow">←</div>
+                <div class="slider-arrow">→</div>
+            </div>
         </div>
-        <div>
-            <img src="" alt="">
-            <h3>Magang di Cafe</h3>
-            <p>Saya pernah mencoba untuk magang part time di suatu Cafe di Jakarta</p>
-            <a href="Know More"></a>
+    </section>
+    
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            
+            <form class="contact-form">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Name">
+                </div>
+                <div class="form-group">
+                    <input type="email" class="form-control" placeholder="Email">
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Subject">
+                </div>
+                <div class="form-group">
+                    <textarea class="form-control" placeholder="Write your message"></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Submit →</button>
+            </form>
         </div>
-        <div>
-            <img src="" alt="">
-            <h3>Volunteer Korban bencana</h3>
-            <p>Saya pernah menjadi Volunteer Korban Bencana Banjir yang terlaetak di Bekasi</p>
-            <a href="Know More"></a>
-        </div>
-    </div>
-    <div>
-        <div>
-            <h1>Get In Touch</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-        </div>
-        <div>
-            <label for="email"></label><input type="text">
-            <label for="Mobile"></label><input type="text">
-            <label for="Message"></label><textarea name="" id=""></textarea>
-            <button>Submit</button>
-        </div>
-    </div>
-    </main>
+    </section>
+    
     <footer>
         <div class="container">
-            <p class="footerP">Copyright@Samuel_2025</p>
+            <p>© Samuel Parikesit, 2023</p>
         </div>
     </footer>
+    
+    <!-- Adding Font Awesome for icons -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
 </body>
 </html>
